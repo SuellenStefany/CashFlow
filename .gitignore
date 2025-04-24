@@ -1,3 +1,7 @@
 .vs
 bin
 obj
+coverage_report
+tools
+output.xml
+.config
