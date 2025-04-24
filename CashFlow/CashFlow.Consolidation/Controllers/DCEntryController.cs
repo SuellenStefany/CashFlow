@@ -1,7 +1,8 @@
 ﻿using CashFlow.Consolidation.Application.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace CashFlow.Transaction.API.Controllers
+namespace CashFlow.Consolidation.API.Controllers
 {
     [ApiController]
     [Route("consolidation")]
@@ -12,6 +13,7 @@ namespace CashFlow.Transaction.API.Controllers
         {
             _dcEntryService = dcEntryService;
         }
+        [Authorize]
         [HttpGet]
         public async Task<ActionResult> Get()
         {

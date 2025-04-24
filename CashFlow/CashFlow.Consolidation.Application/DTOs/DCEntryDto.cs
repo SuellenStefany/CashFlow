@@ -1,7 +1,8 @@
-﻿using CashFlow.Consolidation.Domain.Enums;
+﻿using System.Diagnostics.CodeAnalysis;
 
 namespace CashFlow.Consolidation.Application.DTOs
 {
+    [ExcludeFromCodeCoverage]
     public class DCEntryDto
     {
         public decimal TotalValue { get; set; }

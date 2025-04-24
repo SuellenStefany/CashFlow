@@ -14,13 +14,13 @@ namespace CashFlow.Consolidation.Infrastructure.Repositories
             _DCEntryContext = dcEntryContext;
         }
         public async Task<IEnumerable<DCEntry>> GetDailyConsolidated(DateTime date)
-        {           
+        {
             var resultConsolidated = Builders<DCEntry>.Filter;
 
             var filter = resultConsolidated.And(
-        resultConsolidated.Gte(entry => entry.Date, date.Date.ToUniversalTime()),
-        resultConsolidated.Lt(entry => entry.Date, date.Date.AddDays(1).ToUniversalTime())
-    );
+                resultConsolidated.Gte(entry => entry.Date, date.Date.ToUniversalTime()),
+                resultConsolidated.Lt(entry => entry.Date, date.Date.AddDays(1).ToUniversalTime())
+            );
 
             return await _DCEntryContext.DCEntry.Find(filter).ToListAsync();
         }

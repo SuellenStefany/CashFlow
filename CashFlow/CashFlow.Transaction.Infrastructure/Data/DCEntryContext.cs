@@ -16,5 +16,7 @@ namespace CashFlow.Transaction.Infrastructure.Data
         }
         public IMongoCollection<DCEntry> DCEntry
             => _database.GetCollection<DCEntry>("DCEntry");
+        public IMongoCollection<User> User
+              => _database.GetCollection<User>("User");
     }
 }

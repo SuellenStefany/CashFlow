@@ -1,5 +1,6 @@
 ﻿using CashFlow.Transaction.Application.DTOs;
 using CashFlow.Transaction.Application.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CashFlow.Transaction.API.Controllers
@@ -14,6 +15,7 @@ namespace CashFlow.Transaction.API.Controllers
         {
             _dcEntryService = dcEntryService;
         }
+        [Authorize]
         [HttpPost]
         public async Task<ActionResult> Post(CreateDCEntryDto createDCEntry)
         {

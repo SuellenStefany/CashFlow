@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CashFlow.Consolidation.Doma
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CashFlow.Consolidation.Infrastructure", "..\CashFlow.Consolidation.Infrastructure\CashFlow.Consolidation.Infrastructure.csproj", "{9ED944BA-9E43-47E9-86A3-E99F37E0FD13}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CashFlow.Consolidation.Test", "..\CashFlow.Consolidation.Test\CashFlow.Consolidation.Test.csproj", "{4600BC85-B483-471A-B932-0E857C6DC515}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{9ED944BA-9E43-47E9-86A3-E99F37E0FD13}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9ED944BA-9E43-47E9-86A3-E99F37E0FD13}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9ED944BA-9E43-47E9-86A3-E99F37E0FD13}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4600BC85-B483-471A-B932-0E857C6DC515}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4600BC85-B483-471A-B932-0E857C6DC515}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4600BC85-B483-471A-B932-0E857C6DC515}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4600BC85-B483-471A-B932-0E857C6DC515}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

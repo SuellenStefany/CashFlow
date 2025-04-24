@@ -1,0 +1,21 @@
+FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
+WORKDIR /App
+
+# Copia toda a estrutura da pasta CashFlow.Transaction mantendo subpastas
+COPY ["../../../CashFlow.Transaction", "CashFlow.Transaction/"]
+COPY ["../../../CashFlow.Transaction.Application", "CashFlow.Transaction.Application/"]
+COPY ["../../../CashFlow.Transaction.Domain", "CashFlow.Transaction.Domain/"]
+COPY ["../../../CashFlow.Transaction.Infrastructure", "CashFlow.Transaction.Infrastructure/"]
+COPY ["../../../CashFlow.Transaction.Test", "CashFlow.Transaction.Test/"]
+# Restore
+WORKDIR /App/CashFlow.Transaction
+RUN dotnet restore CashFlow.Transaction.sln
+
+# Build e publish
+RUN dotnet publish CashFlow.Transaction.sln -c Release -o /App/out
+
+# Runtime
+FROM mcr.microsoft.com/dotnet/aspnet:9.0
+WORKDIR /App
+COPY --from=build /App/out .
+ENTRYPOINT ["dotnet", "CashFlow.Transaction.API.dll"]

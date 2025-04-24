@@ -1,0 +1,21 @@
+FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
+WORKDIR /App
+
+# Copia toda a estrutura da pasta CashFlow.Consolidation mantendo subpastas
+COPY ["../../../CashFlow.Consolidation", "CashFlow.Consolidation/"]
+COPY ["../../../CashFlow.Consolidation.Application", "CashFlow.Consolidation.Application/"]
+COPY ["../../../CashFlow.Consolidation.Domain", "CashFlow.Consolidation.Domain/"]
+COPY ["../../../CashFlow.Consolidation.Infrastructure", "CashFlow.Consolidation.Infrastructure/"]
+COPY ["../../../CashFlow.Consolidation.Test", "CashFlow.Consolidation.Test/"]
+# Restore
+WORKDIR /App/CashFlow.Consolidation
+RUN dotnet restore CashFlow.Consolidation.sln
+
+# Build e publish
+RUN dotnet publish CashFlow.Consolidation.sln -c Release -o /App/out
+
+# Runtime
+FROM mcr.microsoft.com/dotnet/aspnet:9.0
+WORKDIR /App
+COPY --from=build /App/out .
+ENTRYPOINT ["dotnet", "CashFlow.Consolidation.API.dll"]
